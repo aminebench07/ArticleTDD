@@ -1,0 +1,14 @@
+{
+  "name": "articletdd",
+  "version": "1.0.0",
+  "description": "Project to learn tdd",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
