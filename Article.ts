@@ -3,6 +3,9 @@ export class Article {
   private quantity: number;
 
   constructor(unitPrice: number, quantity: number) {
+    if (unitPrice < 0) {
+      throw new Error("Unit price must be a positive number");
+    }
     this.unitPrice = unitPrice;
     this.quantity = quantity;
   }
@@ -10,6 +13,4 @@ export class Article {
   priceExcludingTax(): number {
     return this.unitPrice * this.quantity;
   }
-
-  
 }
