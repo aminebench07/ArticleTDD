@@ -35,6 +35,7 @@ describe("Cart", () => {
       "Promotion must be between 0.2 and 1"
     );
   });
+
   it("should use default promotion of 1 if not provided", () => {
     const unitPrice = 100;
     const quantity = 2;
@@ -44,5 +45,11 @@ describe("Cart", () => {
     const cart = new Cart([article]); // No promotion provided
 
     expect(cart.totalVatPrice()).toEqual(article.vatPrice());
+  });
+
+  it("an empty cart should have a price of 0", () => {
+    const cart = new Cart();
+
+    expect(cart.totalVatPrice()).toEqual(0);
   });
 });
