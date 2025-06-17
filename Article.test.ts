@@ -1,13 +1,13 @@
 import { Article } from "./Article";
 describe("Article", () => {
-  it("Excluding tax price should be equal to unitprice*quantity ", () => {
+  it("excluding tax price should be equal to unitprice*quantity ", () => {
     const unitPrice = 100;
     const quantity = 2;
     const article = new Article(unitPrice, quantity);
     expect(article.priceExcludingTax()).toEqual(unitPrice * quantity);
   });
 
-  it("Should show an error if a price is negative", () => {
+  it("should show an error if a price is negative", () => {
     const unitPrice = -100;
     const quantity = 2;
     expect(() => new Article(unitPrice, quantity)).toThrow(
