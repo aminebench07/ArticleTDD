@@ -1,16 +1,21 @@
 export class Article {
   private unitPrice: number;
   private quantity: number;
-
-  constructor(unitPrice: number, quantity: number) {
+  private vat: number;
+  constructor(unitPrice: number, quantity: number, vat: number = 1) {
     if (unitPrice < 0) {
       throw new Error("Unit price must be a positive number");
     }
     this.unitPrice = unitPrice;
     this.quantity = quantity;
+    this.vat = vat;
   }
 
   priceExcludingTax(): number {
     return this.unitPrice * this.quantity;
+  }
+
+  vatPrice(): number {
+    return this.priceExcludingTax() * this.vat;
   }
 }
