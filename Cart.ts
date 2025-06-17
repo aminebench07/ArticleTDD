@@ -5,6 +5,9 @@ export class Cart {
   private promotion: number;
 
   constructor(articles: Article[], promotion: number = 1) {
+    if (promotion < 0.2 || promotion > 1) {
+      throw new Error("Promotion must be between 0.2 and 1");
+    }
     this.articles = articles;
     this.promotion = promotion;
   }

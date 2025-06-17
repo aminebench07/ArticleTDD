@@ -22,4 +22,17 @@ describe("Cart", () => {
 
     expect(cart.totalVatPrice()).toEqual(totalVatPrice);
   });
+
+  it("Should throw an error if promotion is not between 0.2 and 1", () => {
+    const unitPrice = 100;
+    const quantity = 2;
+    const vat = 1.2;
+    const article = new Article(unitPrice, quantity, vat);
+
+    const invalidPromotion = 1.5; // Invalid promotion
+
+    expect(() => new Cart([article], invalidPromotion)).toThrow(
+      "Promotion must be between 0.2 and 1"
+    );
+  });
 });
