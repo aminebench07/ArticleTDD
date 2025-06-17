@@ -6,6 +6,9 @@ export class Article {
     if (unitPrice < 0) {
       throw new Error("Unit price must be a positive number");
     }
+    if (vat < 1 || vat > 1.2) {
+      throw new Error("vat must be between 1 and 1.2");
+    }
     this.unitPrice = unitPrice;
     this.quantity = quantity;
     this.vat = vat;
